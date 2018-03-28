@@ -38,7 +38,7 @@ eddypro_non_numeric = eddypro[,!sapply(eddypro,is.numeric) ]
 #меняем тип колонки
 eddypro$daytime = as.logical(eddypro$daytime) 
 #выбираем весенний ночной период
-night =eddypro<-eddypro[eddypro$DOY>133 & eddypro$DOY<150 & eddy$daytime == FALSE, c(1:ncol(eddypro))] 
+eddypro<-eddypro[eddypro$DOY>133 & eddypro$DOY<150 & eddy$daytime == FALSE, c(1:ncol(eddypro))] 
 #проводим корреляцию
 cor_td = cor(eddypro_numeric) 
 cor_td 
