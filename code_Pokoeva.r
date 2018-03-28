@@ -45,7 +45,7 @@ cor_td
 cor_td = cor(drop_na(eddypro_numeric)) %>% as.data.frame %>% select(h2o_flux) 
 vars = row.names(cor_td)[cor_td$h2o_flux^2 > .1] %>% na.exclude 
 vars 
- #Собираем все переменные в одну формулу 
+#Собираем все переменные в одну формулу 
 formula=as.formula(paste("h2o_flux~",paste(vars,collapse="+"),sep = ""))
 formula
 #создаем обучающую выборку
@@ -55,7 +55,7 @@ test = row_numbers[-teach]
 teaching_eddypro_unq = eddypro[teach,] 
 testing_eddypro_unq = eddypro[test,] 
 #взаимодействие переменных
-model1=lm(h2o_flux ~(Tau + rand_err_Tau + H + rand_err_H + LE + rand_err_LE + co2_flux + rand_err_co2_flux + h2o_flux + rand_err_h2o_flux + H_strg + co2_molar_density + h2o_time_lag + sonic_temperature +  air_temperature + air_density + air_molar_volume + es + RH + VPD + u_star_ + TKE + T_star_ + un_Tau + un_H + un_LE + un_co2_flux + un_h2o_flux + mean_value + u_var + v_var + w_var + h2o_var +  w_div_ts_cov + w_div_co2_cov + w_div_h2o_cov + co2_signal_strength_7200 +  h2o_signal_strength_7200 + flowrate)^2,data=eddypro)
+model1=lm(h2o_flux ~(Tau + rand_err_Tau + H + rand_err_H + LE + rand_err_LE + co2_flux + rand_err_co2_flux + h2o_flux + rand_err_h2o_flux + H_strg + co2_molar_density + h2o_time_lag + sonic_temperature +  air_temperature + air_density + air_molar_volume + es + RH + VPD + u_star_ + TKE + T_star_ + un_Tau + un_H + un_LE + un_co2_flux + un_h2o_flux + mean_value + u_var + v_var + w_var + h2o_var +  w_div_ts_cov + w_div_co2_cov + w_div_h2o_cov + co2_signal_strength_7200 +  h2o_signal_strength_7200 + flowrate),data=eddypro)
 model1
 coef(model1) #вытаскиваем коэффииенты из модели
 resid(model1) #вытаскиваем остатки
@@ -71,7 +71,7 @@ confint(model2)
 summary(model2)
 anova(model2)
 model3=lm(h2o_flux ~ (rand_err_Tau + H + LE + rand_err_LE + h2o_flux + rand_err_h2o_flux +  co2_molar_density
- + co2_mixing_ratio + RH + VPD + max_speed +  u_star_ + TKE + T_star_ + un_H + un_LE + un_h2o_flux)^2, data = eddypro))
+ + co2_mixing_ratio + RH + VPD + max_speed +  u_star_ + TKE + T_star_ + un_H + un_LE + un_h2o_flux)^2, data = eddypro)
 model3
 coef(model3) 
 resid(model3) 
@@ -79,8 +79,8 @@ confint(model3)
 summary(model3)
 anova(model3)
 model4=lm(h2o_flux ~ (LE + rand_err_LE + h2o_flux + rand_err_h2o_flux +  co2_molar_density  + co2_mixing_ratio 
-                       + RH + VPD + max_speed +  u_star_ + TKE + T_star_ + un_H + un_LE + un_h2o_flux) - 
-                       rand_err_Tau - H - rand_err_LE - rand_err_h2o_flux - RH - VPD - u_star_  - un_H ^2, data = eddypro)
+ + RH + VPD + max_speed +  u_star_ + TKE + T_star_ + un_H + un_LE + un_h2o_flux) - 
+   rand_err_Tau - H - rand_err_LE - rand_err_h2o_flux - RH - VPD - u_star_  - un_H ^2, data = eddypro)
 coef(model4) 
 resid(model4) 
 confint(model4) 
