@@ -56,18 +56,21 @@ teaching_eddypro_unq = eddypro[teach,]
 testing_eddypro_unq = eddypro[test,] 
 #взаимодействие переменных
 model1=lm((h2o_flux ~ DOY + Tau + rand_err_Tau + H + rand_err_H + LE + rand_err_LE + co2_flux + rand_err_co2_flux + h2o_flux + rand_err_h2o_flux + H_strg + co2_molar_density + h2o_time_lag + sonic_temperature +  air_temperature + air_density + air_molar_volume + es + RH + VPD + u_star_ + TKE + T_star_ + un_Tau + un_H + un_LE + un_co2_flux + un_h2o_flux + mean_value + u_var + v_var + w_var + h2o_var +  w_div_ts_cov + w_div_co2_cov + w_div_h2o_cov + co2_signal_strength_7200 +  h2o_signal_strength_7200 + flowrate)^2,data=eddypro)
+model1
 coef(model1) #вытаскиваем коэффииенты из модели
 resid(model1) #вытаскиваем остатки
 confint(model1) 
 summary(model1)
 anova(model1)
 model2=lm((h2o_flux ~ DOY + Tau + H + LE + co2_flux + h2o_flux + co2_molar_density  +  air_temperature + air_density + air_molar_volume es + RH + VPD + u. + TKE + T )^2,data=eddypro)
+model2
 coef(model2) 
 resid(model2) 
 confint(model2) 
 summary(model2)
 anova(model2)
 model3 =lm((h2o_flux ~ DOY + Tau + H + LE + co2_flux + h2o_flux + co2_molar_density  +  air_temperature + air_density + air_molar_volume es + RH + VPD + u. + TKE + T )^2-Tau:H -Tau:LE -Tau:co2_flux - Tau:co2_molar_density-Tau:H_strg-Tau:h2o_time_lag-Tau:air_density -  Tau:air_molar_volume-Tau:u.-Tau:T.-H:LE-H:co2_molar_density -H:h2o_time_lag -H:air_density-H_strg:es-H_strg:RH-H_strg:VPD-H_strg:u.-co2_molar_density:h2o_time_lag - co2_molar_density:u.-co2_molar_density:T.-h2o_time_lag:u. -h2o_time_lag:T.-sonic_temperature:RH -air_density:VPD-air_density:u.-air_molar_volume:u.-es:RH-air_molar_volume:es ,data=eddypro) 
+model3
 coef(model3)
 resid(model3)  
 confint(model3) 
