@@ -69,6 +69,36 @@ resid(model2)
 confint(model2) 
 summary(model2)
 anova(model2)
+model3 = lm(h2o_flux ~ (rand_err_Tau + H + LE + rand_err_LE + h2o_flux +rand_err_h2o_flux + co2_molar_density + co2_mixing_ratio 
+                        + RH + VPD + max_speed + u_star_ + TKE + T_star_ + un_H + un_LE + un_h2o_flux +  w_div_ts_cov 
+                        + w_div_h2o_cov + co2_signal_strength_7200)^2-rand_err_Tau:H-LE:rand_err_LE-rand_err_h2o_flux:co2_molar_density-co2_mixing_ratio:VPD-
+              max_speed:u_star_-T_star_:un_H-un_LE:un_h2o_flux-u_var:v_var-w_div_ts_cov:w_div_h2o_cov:o2_signal_strength_7200
+            -rand_err_Tau:H-rand_err_Tau:LE-rand_err_Tau:rand_err_LE-h2o_flux:rand_err_Tau-rand_err_Tau:rand_err_h2o_flux
+            -rand_err_Tau:co2_molar_density-rand_err_Tau:co2_mixing_ratio-rand_err_Tau:max_speed-rand_err_Tau:TKE-rand_err_Tau:T_star_
+            -rand_err_Tau:un_H-rand_err_Tau:un_LE-rand_err_Tau:u_var-rand_err_Tau:v_var-rand_err_Tau:w_div_ts_cov-
+              rand_err_Tau:co2_signal_srength_7200:h2o_flux-H:H-co2_molar_density:H-co2_mixing_ratio:H-max_speed:H-T_star_:H-u_var                                       
+            -H:v_var-H:w_div_ts_cov-H:co2_signal_strength_7200-LE:rand_err_LE-h2o_flux:LE-LE:rand_err_h2o_flux-LE:co2_molar_density-LE:co2_mixing_ratio                           
+            -LE:max_speed-LE:un_h2o_flux-LE:u_var-LE:v_var-LE:w_div_ts_cov-LE:w_div_h2o_cov-LE:co2_signal_strength_7200-rand_err_LE:co2_molar_density-
+              rand_err_LE:co2_mixing_ratio-rand_err_LE:max_speed-rand_err_LE:T_star_-rand_err_LE:un_h2o_flux-rand_err_LE:u_var-rand_err_LE:v_var-rand_err_LE:w_div_ts_cov                      
+            -rand_err_LE:co2_signal_strength_7200-h2o_flux:rand_err_h2o_flux-h2o_flux:co2_molar_density-h2o_flux:co2_mixing_ratio-h2o_flux:RH                                   
+            -h2o_flux:VPD-h2o_flux:max_speed-h2o_flux:u_star_-h2o_flux:TKE-h2o_flux:T_star_-h2o_flux:un_H-h2o_flux:un_h2o_flux-h2o_flux:u_var            
+            -h2o_flux:v_var-h2o_flux:w_div_ts_cov-h2o_flux:w_div_h2o_cov-h2o_flux:co2_signal_strength_7200-rand_err_h2o_flux:co2_molar_density          
+            -rand_err_h2o_flux:co2_mixing_ratio-rand_err_h2o_flux:VPD-rand_err_h2o_flux:max_speed-rand_err_h2o_flux:un_h2o_flux-rand_err_h2o_flux:u_var    
+            -rand_err_h2o_flux:v_var-rand_err_h2o_flux:w_div_ts_cov-rand_err_h2o_flux:w_div_h2o_cov-rand_err_h2o_flux:co2_signal_strength_7200-
+              co2_molar_density:co2_mixing_ratio-co2_molar_density:RH-co2_molar_density:max_speed-co2_molar_density:u_star_-co2_molar_density:T_star_
+            -co2_molar_density:un_LE-co2_molar_density:un_h2o_flux-co2_molar_density:v_var-co2_molar_density:w_div_ts_cov-co2_molar_density:w_div_h2o_cov-
+              co2_mixing_ratio:VPD-co2_mixing_ratio:max_speed-co2_mixing_ratio:TKE-co2_mixing_ratio:T_star_-co2_mixing_ratio:un_LE-co2_mixing_ratio:un_h2o_flux-
+              co2_mixing_ratio:u_var-co2_mixing_ratio:w_div_ts_cov-co2_mixing_ratio:w_div_h2o_cov-co2_mixing_ratio:co2_signal_strength_7200-RH:max_speed-RH:T_star_-
+              RH:v_var-RH:w_div_ts_cov-RH:co2_signal_strength_7200-VPD:max_speed-VPD:v_var-VPD:w_div_ts_cov-VPD:co2_signal_strength_7200-max_speed:T_star_-max_speed:un_H-
+              max_speed:un_LE-max_speed:un_h2o_flux-max_speed:u_var-max_speed:v_var-max_speed:w_div_ts_cov-max_speed:w_div_h2o_cov-u_star_:w_div_ts_covu_star_:w_div_h2o_cov-
+              u_star_:co2_signal_strength_7200-T_star_:un_h2o_flux-T_star_:w_div_ts_cov-un_H:u_var-un_H:v_var-un_H:co2_signal_strength_7200-
+              un_LE:u_var-un_LE:v_var-un_LE:co2_signal_strength_7200-un_h2o_flux:u_var,data=eddypro) 
+coef(model3) 
+resid(model3) 
+confint(model3) 
+summary(model3)
+anova(model3)
+
 
 
 
