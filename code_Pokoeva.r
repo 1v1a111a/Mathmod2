@@ -32,8 +32,7 @@ sapply(eddypro,is.numeric)
 eddypro_numeric = eddypro[,sapply(eddypro,is.numeric)]
 eddypro_non_numeric = eddypro[,!sapply(eddypro,is.numeric) ] 
 eddypro$daytime = as.logical(eddypro$daytime) 
-eddypro= eddypro[eddypro, DOY > 133 & DOY < 150,]
-night = filter(daytime == "FALSE",c(1:ncol(eddypro)
+night =eddypro<-eddypro[eddypro$DOY>133 & eddypro$DOY<150 & eddy$daytime == FALSE, c(1:ncol(eddy))] 
 cor_td = cor(eddypro_numeric) 
 cor_td 
 cor_td = cor(drop_na(eddypro_numeric)) %>% as.data.frame %>% select(h2o_flux) 
